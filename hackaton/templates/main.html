@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
    <head>
       <meta charset="utf-8" />
@@ -7,7 +8,7 @@
       <meta name="author" content="" />
       <title>SoulsIT</title>
       <!-- Custom CSS (includes Bootstrap 5.0)-->
-      <link href="css/styles.css" rel="stylesheet" />
+      <link href="{%static 'css/styles.css'%}" rel="stylesheet" />
    </head>
    <body>
       <!-- Menu - responsive -->
@@ -73,10 +74,10 @@
       </div>
       <!-- Content - end -->
       <!-- Bootstrap core JS-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="{%static 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'%}"></script>
       <!-- JQuery CDN-->
-      <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+      <script src="{%static 'https://code.jquery.com/jquery-3.6.1.js'%}" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
       <!-- Custom JS-->
-      <script src="js/scripts.js"></script>
+      <script src="{%static 'js/scripts.js'%}"></script>
    </body>
 </html>
