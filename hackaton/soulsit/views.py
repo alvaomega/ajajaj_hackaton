@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
-    return render(request, 'soulsit/main.html')
+    return render(request, 'main.html')
 
 def register(request):
     if request.method == 'POST':
@@ -20,4 +20,4 @@ def register(request):
         form = UserCreationForm()
 
     context = {'form': form}
-    return render(request, 'users/rgst.html', context)
+    return render(request, 'rgst.html', context)
