@@ -1,18 +1,9 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: 'work_sansregular';
-  src: url('fonts/worksans-regular-webfont.woff2') format('woff2'),
-       url('fonts/worksans-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-@font-face {
-  font-family: 'work_sanssemibold';
-  src: url('fonts/worksans-semibold-webfont.woff2') format('woff2'),
-       url('fonts/worksans-semibold-webfont.woff') format('woff');
+  font-family: 'Segoe UI';
+  src: url('static/segoe-ui-4-cufonfonts'),
+       url('static/segoe-ui-4-cufonfonts');
   font-weight: normal;
   font-style: normal;
 }
@@ -41,7 +32,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #0d6efd;
+  --bs-primary: #027e9d;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -285,7 +276,7 @@ pre code {
 
 code {
   font-size: 0.875em;
-  color: #d63384;
+  color: #0491b4;
   word-wrap: break-word;
 }
 a > code {
@@ -11316,57 +11307,6 @@ textarea.form-control-lg {
 }
 
 /*  Style własne  */
-.banner-container {
-  border-bottom: 3px solid #5FA8D3;
-  height: 100px;  /*  wartość przykładowa  */
-  margin: 50px 0 0 0;  /*  wartość przykładowa  */
-}
-
-.btn-active {
-  color: #fff;
-  background-color: #5FA8D3;
-  border-color: #5FA8D3;
-}
-.btn-primary:hover {
-  color: #01295F;
-  background-color: #5FA8D3;
-  border-color: #5FA8D3;
-}
-
-
-.footer {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-}
-
-.footer ul  {
-  padding-left:0
-}
-
-.footer ul ol {
-  display:inline
-}
-
-#wrapper {
-  height: 100%
-}
-
-.panel-content {
-  background-color: #ececec
-}
-
-#page-content-wrapper {
-  margin: 5% 0;
-}
-
-.sidebar {
-  box-shadow: 10px 0px 5px 0px rgba(177,177,177,0.75);
--webkit-box-shadow: 10px 0px 5px 0px rgba(177,177,177,0.75);
--moz-box-shadow: 10px 0px 5px 0px rgba(177,177,177,0.75);
-z-index: 1;
-}
-
 *{
   margin: 0;
   padding: 0;
