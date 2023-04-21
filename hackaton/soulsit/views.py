@@ -1,12 +1,4 @@
-from django.shortcuts import render
 from django.http import HttpResponse
-
-
-def index(request):
-    return HttpResponse("Tutaj będzie strona startowa")
-
-
-
 ##logowanie i rejestrowanie
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
@@ -14,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
-    return render(request, 'users/home.html')
+    return render(request, 'main.html')
 
 def register(request):
     if request.method == 'POST':
@@ -28,4 +20,4 @@ def register(request):
         form = UserCreationForm()
 
     context = {'form': form}
-    return render(request, 'users/register.html', context)
+    return render(request, 'rgst.html', context)

@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from soulsit import views as user_views
 
 urlpatterns = [
-    path("soulsit/index", include("soulsit.urls")),
     path('admin/', admin.site.urls),
+    path('', user_views.home, name='home'),
+    path('register/', user_views.register, name='register'),    
 ]
