@@ -9,4 +9,3 @@ class Project(models.Model):
     project_users = models.CharField(max_length=100)
     project_creation_date = models.DateTimeField(auto_now_add=True)
     project_details = models.CharField(max_length=100)
-

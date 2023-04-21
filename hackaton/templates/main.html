@@ -1,82 +1,98 @@
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="description" content="" />
-      <meta name="author" content="" />
-      <title>SoulsIT</title>
-      <!-- Custom CSS (includes Bootstrap 5.0)-->
-      <link href="css/styles.css" rel="stylesheet" />
-   </head>
-   <body>
-      <!-- Menu - responsive -->
-      <nav class="navbar navbar-expand-lg navbar-dark">
-         <div class="container">
-            <a class="navbar-brand" href="#">Miejsce na logo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.html">Sign In</a></li>
-                  <li class="nav-item"><a class="btn btn-login btn-active" href="rgst.html">Get Started</a></li>
-               </ul>
-            </div>
-         </div>
-      </nav>
-      <!-- Page content-->
-      <div class="container">
-         <!-- Banner -->
-         <div class="row banner-container">
-            <!-- Banner - col1 -->
-            <div class="col-12 col-md-6 text-center">Tekst</div>
-            <!-- End -->
-            <!-- Banner - col2 -->
-            <div class="col-12 col-md-6 text-center">Obrazek</div>
-            <!-- End -->
-         </div>
-         <!-- Banner - end -->
-         <!-- Content -->
-         <div class="row text-center mt-5">
-            <h1>Centrum wiedzy</h1>
-            <div class="col-6 col-md-6 text-right"><button class="btn panel-btn btn-active" id="article" onclick="switchTab(this.id)">Button 1</button></div>
-            <div class="col-6 col-md-6 text-left"><button class="btn panel-btn btn-inactive" id="forum" onclick="switchTab(this.id)">Button 2</button></div>
-            <!-- Article -->
-            <div id="panel-article" class="panel">Artykuły</div>
-            <!-- Article - end -->
-            <!-- Forum  -->
-            <div id="panel-forum" class="panel" style="display: none">Forum</div>
-            <!-- Forum - end -->
-         </div>
-         <!-- Footer  -->
-         <div class="row text-center mt-5 footer">
-            <div class="col-12 col-md-5">
-               <ul>
-                  <ol>Menu 1</ol>
-                  <ol>Menu 2</ol>
-                  <ol>Menu 3</ol>
-                  <ol>Menu 4</ol>
-               </ul>
-            </div>
-            <div class="col-12 col-md-2">
-               Grafika
-            </div>
-            <div class="col-12 col-md-5">
-               <ul>
-                  <ol>Menu 5</ol>
-                  <ol>Menu 6</ol>
-                  <ol>Menu 7</ol>
-                  <ol>Menu 8</ol>
-               </ul>
-            </div>
-         </div>
-         <!-- Footer - end  -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="project">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <meta name="author" content="vinayak sharma">
+
+  <title>{{title}}</title>
+
+
+  <!-- bootstrap file -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- bootstrap file-->
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- main css -->
+  <link rel="stylesheet" type="text/css" href="{% static "index.css" %}" />
+
+
+  <!-- message here -->
+
+  {% if messages %}
+  {% for message in messages %}
+
+  <script>
+    alert("{{ message }}");
+  </script>
+
+  {% endfor %}
+  {% endif %}
+
+  <!--_______________________________________________-->
+
+
+
+</head>
+
+<body class="container-fluid">
+
+
+  <header class="row">
+
+    <!-- navbar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" class="styleheader" href="{% url "home" %}">project</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mainNavBar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url "home" %}">Home</a></li>
+
+            {% if user.is_authenticated %}
+            <li><a href="{% url "logout" %}"><span class="glyphicon glyphicon-log-out"></span> &nbsp; Logout</a></li>
+            {% else %}
+            <li><a href="{% url "register" %}"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign up</a></li>
+            <li><a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a></li>
+            {% endif %}
+
+          </ul>
+        </div>
       </div>
-      <!-- Content - end -->
-      <!-- Bootstrap core JS-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- JQuery CDN-->
-      <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-      <!-- Custom JS-->
-      <script src="js/scripts.js"></script>
-   </body>
+    </nav>
+  </header>
+  <br/>
+  <br>
+  <br>
+  <div class="row">
+    {% block start %}
+    {% if user.is_authenticated %}
+    <center><h1>welcome back {{user.username}}!</h1></center>
+    {% else %}
+    <center><h1>log in, plz . . .</h1></center>
+    {% endif %}
+    {% endblock %}
+  </div>
+</body>
+
 </html>
