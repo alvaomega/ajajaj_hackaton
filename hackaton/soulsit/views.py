@@ -30,7 +30,6 @@ def register(request):
             msg.attach_alternative(html_content, "text/html")
             msg.send()
             ##################################################################
-            messages.success(request, f'Your account has been created ! You are now able to log in')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -46,9 +45,9 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f' Witaj {username} !!')
             return redirect('home')
         else:
             messages.info(request, f'Konto nie istnieje prosze się zarejestrować')
+            return redirect('register')
     form = AuthenticationForm()
     return render(request, 'login.html', {'form':form, 'title':'log in'})
