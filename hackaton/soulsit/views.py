@@ -21,7 +21,8 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
-            ######################### mail system ####################################
+
+
             htmly = get_template('Email.html')
             d = { 'username': username }
             subject, from_email, to = 'welcome', 'your_email@gmail.com', email
@@ -29,7 +30,7 @@ def register(request):
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
-            ##################################################################
+
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -37,8 +38,6 @@ def register(request):
 
 def Login(request):
     if request.method == 'POST':
-  
-        # AuthenticationForm_can_also_be_used__
   
         username = request.POST['username']
         password = request.POST['password']
