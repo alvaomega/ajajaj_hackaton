@@ -1,10 +1,12 @@
+
+/*  Style własne  */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-::selection{ /*zaznaczenie*/
+::selection{
   color: #000;
   background: #0491b4;
 }
@@ -93,21 +95,6 @@
     display: inline-block;
     font-size: 16px;
   }
-
-.img{
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-.img::before{
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-}
 
 .center .title{
   color: #fff;
