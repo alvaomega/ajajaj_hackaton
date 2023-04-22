@@ -21,3 +21,4 @@ def register(request):
 
     context = {'form': form}
     return render(request, 'rgst.html', context)
+    return render(request, 'main.html', context)
