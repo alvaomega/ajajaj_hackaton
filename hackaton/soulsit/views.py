@@ -29,8 +29,6 @@ def register(request):
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
-            ##################################################################
-            messages.success(request, f'Your account has been created ! You are now able to log in')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -46,9 +44,9 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f' welcome {username} !!')
             return redirect('home')
         else:
             messages.info(request, f'account done not exist plz sign in')
+            return redirect('register')
     form = AuthenticationForm()
     return render(request, 'login.html', {'form':form, 'title':'log in'})
