@@ -10,6 +10,10 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 from .forms import UserRegisterForm
+from django.views import View 
+from django.contrib.auth import get_user_model
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+
 
 def home(request):
     return render(request, 'main.html')
@@ -50,3 +54,27 @@ def Login(request):
             return redirect('register')
     form = AuthenticationForm()
     return render(request, 'login.html', {'form':form, 'title':'log in'})
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile') # Redirect back to profile page
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'profile.html', context)
